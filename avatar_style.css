@@ -1,0 +1,76 @@
+/* style.css */
+.container {
+    width:870px; 
+    height: 580px;
+    padding: 40px;
+    border: 1px solid #efefef;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    margin-top: 4%;
+    left: 17%;
+    text-align: center;
+}
+
+.avatar-preview img {
+    width: 225px;
+    height: 225px;
+    padding: 8px;
+    border-radius: 50%; /* 使圖片顯示為圓形 */
+    border-color: black;
+    border-width: 1px;
+}
+
+.avatar-options img {
+    width: 50px;
+    height: 50px;
+    margin: 3px;
+    border-radius: 50%; /* 使圖片顯示為圓形 */
+    cursor: pointer; /* 鼠標懸停時顯示手形圖標 */
+}
+
+.avatar-options{
+    margin: 2px;
+}
+
+.avatar-options img:hover {
+    transform: scale(1.1); /* 懸停時放大 */
+}
+
+button {
+    position: absolute;
+    bottom: 10px; /* 距離容器底部的距離 */
+    left: 50%; /* 將按鈕置於容器的中間 */
+    transform: translateX(-50%); /* 確保按鈕的中心與容器的中心對齊 */
+    padding: 10px 20px;
+    background-color: #4b4b4b; /* 按鈕背景顏色 */
+    color: white; /* 文字顏色 */
+    border: none; /* 去除邊框 */
+    border-radius: 5px; /* 圓角 */
+    cursor: pointer; /* 鼠標懸停時顯示指針 */
+    margin-top: 20px;
+    margin-right: 10px; /* 按鈕間距 */
+    transition: background-color 0.3s; /* 鼠標懸停時變色效果 */
+}
+
+button:hover {
+    background-color: #252525; /* 鼠標懸停時的背景顏色 */
+}
+
+/* 擴展原有的style.css內容 */
+input[type="text"]#nameInput {
+    width: 60%; /* 控制寬度，根據需求調整 */
+    padding: 10px; /* 內邊距，讓輸入框更高，輸入時更舒適 */
+    margin: 6px 0; /* 上下邊距，與其他元素的距離 */
+    border: 2px solid #ddd; /* 邊框顏色較淺，更細緻 */
+    border-radius: 20px; /* 邊框圓角 */
+    box-shadow: 0px 0px 8px #ccc; /* 添加輕微的陰影，提升立體感 */
+    outline: none; /* 去除選中時的默認輪廓線 */
+    transition: all 0.3s ease; /* 平滑過渡效果 */
+}
+
+input[type="text"]#nameInput:focus {
+    border-color: #5c5c5c; /* 輸入框聚焦時改變邊框顏色 */
+    box-shadow: 0px 0px 12px #5a5a5a; /* 聚焦時陰影更明顯 */
+}
+

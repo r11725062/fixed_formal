@@ -1,0 +1,63 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container {
+    width: 900PX; 
+    height: 550px;
+    padding: 50px;
+    border: 1px solid #efefef;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+button {
+    position: absolute;
+    bottom: 10px; /* 距離容器底部的距離 */
+    left: 50%; /* 將按鈕置於容器的中間 */
+    transform: translateX(-50%); /* 確保按鈕的中心與容器的中心對齊 */
+    padding: 10px 20px;
+    background-color: #4b4b4b; /* 按鈕背景顏色 */
+    color: white; /* 文字顏色 */
+    border: none; /* 去除邊框 */
+    border-radius: 5px; /* 圓角 */
+    cursor: pointer; /* 鼠標懸停時顯示指針 */
+    margin-top: 20px;
+    margin-right: 10px; /* 按鈕間距 */
+    transition: background-color 0.3s; /* 鼠標懸停時變色效果 */
+}
+
+button:hover {
+    background-color: #252525; /* 鼠標懸停時的背景顏色 */
+}
+
+
+#salary1_pic, #salary2_pic {
+    max-width: 40%; /* 或者你可以使用特定的像素值，例如 '500px' */
+    height: auto;
+}
+
+#prev {
+    left: 20px; /* 距離容器左側的距離 */
+    transform: translateX(0%); /* 不需要水平偏移 */
+}
+
+#next {
+    right: 15px; /* 距離容器右側的距離 */
+    left: auto; /* 覆寫left屬性 */
+    transform: translateX(0%); /* 不需要水平偏移 */
+}
