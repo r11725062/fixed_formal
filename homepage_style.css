@@ -17,7 +17,13 @@ body, html {
     position: relative;
 }
 
+.page {
+    display: none;
+}
 
+.page.active {
+    display: block;
+}
 
 button {
     position: absolute;
@@ -45,6 +51,10 @@ button:hover {
     height: auto;
 }
 
+#prev {
+    left: 20px; /* 距離容器左側的距離 */
+    transform: translateX(0%); /* 不需要水平偏移 */
+}
 
 #next {
     right: 15px; /* 距離容器右側的距離 */
