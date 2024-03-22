@@ -54,7 +54,7 @@ const handleChat = () => {
     
     setTimeout(() => {
         // Display "Thinking..." message while waiting for the response
-        const incomingChatLi = createChatLi("......", "incoming");
+        const incomingChatLi = createChatLi("正在輸入訊息...", "incoming");
         chatbox.appendChild(incomingChatLi);
         chatbox.scrollTo(0, chatbox.scrollHeight);
         generateResponse(incomingChatLi);
