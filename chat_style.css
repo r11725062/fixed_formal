@@ -234,9 +234,9 @@ header h2 {
 }
 
 .ava_image{
-  width: 45px;
-  height: 45px;
+  width: 60px;
+  height: 60px;
   margin-right: 10px;
-  margin-top: 10px;
+  margin-top: 1px;
   border-radius: 50%;
 }
