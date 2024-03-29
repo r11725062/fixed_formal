@@ -240,3 +240,79 @@ header h2 {
   margin-top: 1px;
   border-radius: 50%;
 }
+
+/* 遮罩層樣式 */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色背景 */
+  z-index: 999; /* 確保在指引下方 */
+}
+
+.modal-guide {
+  display: none; /* 初始不顯示 */
+  position: fixed;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  z-index: 1000; /* 確保在遮罩層上層 */
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  width: auto;
+  max-width: 350px; /* 最大寬度，保持指引框的美觀 */
+}
+
+/* 調整指引框內的文字樣式 */
+.modal-guide p {
+  color: #333; /* 文字顏色 */
+  font-size: 16px; /* 文字大小 */
+  line-height: 1.4; /* 行高 */
+}
+
+.close-guide {
+  position: absolute;
+  top: -15px; /* 調整位置以確保按鈕不會超出指引框太多 */
+  right: -15px; /* 同上 */
+  background: #f44336;
+  color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 5px; /* 增加內邊距，使×符號居中 */
+  font-size: 22px; /* 可根據需要調整字體大小 */
+  width: 30px; /* 設置寬度 */
+  height: 30px; /* 設置高度相等以形成圓形 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 調整第一個指引的位置 */
+#guideModal1 {
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 調整第二個指引的位置到螢幕的偏左上 */
+#guideModal2 {
+  top: 15%;
+  left: 7%; /* 左側20%的位置 */
+}
+
+#guideModal3 {
+  top: 15%;
+  right: 7%; /* 左側20%的位置 */
+}
+
+.close-popup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 24px;
+}
+
