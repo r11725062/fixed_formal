@@ -33,7 +33,10 @@ const generateResponse = (chatElement) => {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({ userMessage: userMessage })
+         body: JSON.stringify({ 
+            userMessage: userMessage, 
+            chatHistory: chatHistory // 将当前对话历史发送给服务器
+        })
     };
 
     fetch(netlifyFunctionURL, requestOptions).then(res => res.json()).then(data => {
