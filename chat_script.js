@@ -160,4 +160,78 @@ document.querySelector('.material-symbols-outlined').addEventListener('click', f
       popupBox.style.display = 'none';
     }
   });
+$(document).ready(function() {
+    // 顯示遮罩層和第一個指引
+    $(".modal-overlay").show();
+    $("#guideModal1").show();
   
+    // 當用戶點擊任一關閉按鈕時
+    $(".close-guide").click(function() {
+      var guideNumber = $(this).data("guide"); // 獲取是哪一個指引的關閉按鈕
+      $("#guideModal" + guideNumber).hide(); // 隱藏當前指引
+  
+      if (guideNumber == 1) {
+        // 如果是第一個指引被關閉，則顯示第二個指引
+        $("#guideModal2").show();
+      } else if (guideNumber == 2) {
+        // 如果是第二個指引被關閉，則顯示第三個指引
+        $("#guideModal3").show();
+      } else {
+        // 如果是第三個指引被關閉，則隱藏遮罩層
+        $(".modal-overlay").hide();
+      }
+    });
+  });
+  
+function fallbackCopyTextToClipboard(text) {
+    var textArea = document.createElement("textarea");
+    textArea.value = text;
+
+    // 避免在屏幕上显示textArea
+    textArea.style.position = "fixed";
+    textArea.style.top = "0";
+    textArea.style.left = "0";
+    textArea.style.width = "2em";
+    textArea.style.height = "2em";
+    textArea.style.padding = "0";
+    textArea.style.border = "none";
+    textArea.style.outline = "none";
+    textArea.style.boxShadow = "none";
+    textArea.style.background = "transparent";
+
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+
+    try {
+        var successful = document.execCommand('copy');
+        var msg = successful ? '成功' : '失败';
+        console.log('Fallback: 复制的文本 ' + msg);
+    } catch (err) {
+        console.error('Fallback: 无法复制文本', err);
+    }
+
+    document.body.removeChild(textArea);
+    alert('已複製問題');
+}
+
+
+$(document).on('click', '.question', function() {
+    const questionText = $(this).data('copy'); // 或者 $(this).text() 获取问题文本
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(questionText).then(() => {
+            alert('已複製問題');
+        }).catch(err => {
+            console.error('复制失败，使用fallback方案', err);
+            fallbackCopyTextToClipboard(questionText);
+        });
+    } else {
+        console.log('Clipboard API 不可用，使用fallback方案');
+        fallbackCopyTextToClipboard(questionText);
+    }
+
+    // 关闭问题库
+    $('.close-popup').click(function() {
+        $(this).parent('.popup-box').hide();
+    });
+});
