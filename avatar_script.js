@@ -4,11 +4,11 @@ document.addEventListener("DOMContentLoaded", function() {
             "ava_images/f_g_s_h.png",
             "ava_images/f_g_s_s.png",
             "ava_images/f_g_t_h.png",
-            "ava_images/f_g_t_s.png.png",
-            "ava_images/m_g_s_h.png.png",
-            "ava_images/m_g_s_s.png.png",
-            "ava_images/m_g_t_h.png.png",
-            "ava_images/m_g_t_s.png.png"
+            "ava_images/f_g_t_s.png",
+            "ava_images/m_g_s_h.png",
+            "ava_images/m_g_s_s.png",
+            "ava_images/m_g_t_h.png",
+            "ava_images/m_g_t_s.png"
         ];
     
         // 隨機選擇一個頭像
