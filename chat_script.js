@@ -18,7 +18,7 @@ const createChatLi = (message, className) => {
     const chatLi = document.createElement("li");
     chatLi.classList.add("chat", `${className}`);
     const avatarSrc = localStorage.getItem("avatarSrc") || "ava_images/m_ng_s_s.png";
-    let chatContent = className === "outgoing" ? `<p></p>` : `<img class="ava_image" src="ava_images/m_ng_s_s.png"><p></p>`;
+    let chatContent = className === "outgoing" ? `<p></p>` : `<img class="ava_image" src="${avatarSrc}"><p></p>`;
     chatLi.innerHTML = chatContent;
     chatLi.querySelector("p").textContent = message;
     return chatLi; // return chat <li> element
@@ -89,6 +89,15 @@ chatInput.addEventListener("keydown", (e) => {
 document.addEventListener("DOMContentLoaded", () => { 
     // if the webpage opened, the chatroom show
     document.body.classList.add("show-chatbot");
+    const avatarSrc = localStorage.getItem('avatarSrc');
+
+    // 檢查是否成功獲取頭像路徑
+    if (avatarSrc) {
+      // 如果有，更新頁面上所有頭像圖片的src屬性
+      document.querySelectorAll('.ava_image').forEach(img => {
+        img.src = avatarSrc;
+      });
+    }
 });
 
 sendChatBtn.addEventListener("click", handleChat);
@@ -98,12 +107,14 @@ closeBtn.addEventListener("click", () => document.body.classList.remove("show-ch
 function submitChatHistoryToGoogleForm() {
     // 将聊天历史转换为一个字符串
     let chatHistoryString = chatHistory.map(item => `${item.sender}: ${item.message}`).join('\n');
+    // 伪代码示例，展示如何在 chat.html 中处理 localStorage 数据
+    const avatarSrc = localStorage.getItem("avatarSrc") || "default.png";
     // 构造表单数据
     let formData = new FormData();
     formData.append("entry.938012830", 'fixed');
     formData.append("entry.25562195", "formal");
     formData.append("entry.22358687", "default_name");
-    formData.append("entry.1553700084", "default_avatar");
+    formData.append("entry.1553700084", avatarSrc);
     formData.append("entry.801005873", chatHistoryString);
      // 使用fetch替代$.ajax提交表单
     fetch("https://docs.google.com/forms/u/0/d/e/1FAIpQLSedu6Xgk9J57Z7p1NmCSabbymfZ5XfTVDj1Qobu6p5IFJv0mw/formResponse", {
