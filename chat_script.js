@@ -108,7 +108,7 @@ function submitChatHistoryToGoogleForm() {
     // 将聊天历史转换为一个字符串
     let chatHistoryString = chatHistory.map(item => `${item.sender}: ${item.message}`).join('\n');
     // 伪代码示例，展示如何在 chat.html 中处理 localStorage 数据
-    const avatarSrc = localStorage.getItem("avatarSrc") || "default.png";
+    const avatarSrc = localStorage.getItem("avatarSrc") || "ava_images/m_ng_s_s.png";
     // 构造表单数据
     let formData = new FormData();
     formData.append("entry.938012830", 'fixed');
