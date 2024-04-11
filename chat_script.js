@@ -147,11 +147,7 @@ function startTimer(duration, display) {
     }, 1000);
 }
 
-window.onload = function () {
-    const duration = 300, // 這裡設置倒數計時的總秒數
-        display = document.querySelector('#timer');
-    startTimer(duration, display);
-    
+window.onload = function () { 
     var avatarSrc = localStorage.getItem("avatarSrc");
     var userName = localStorage.getItem("userName");
   
@@ -172,27 +168,31 @@ document.querySelector('.material-symbols-outlined').addEventListener('click', f
     }
   });
 $(document).ready(function() {
-    // 顯示遮罩層和第一個指引
+    // 显示遮罩层和第一个指引
     $(".modal-overlay").show();
     $("#guideModal1").show();
   
-    // 當用戶點擊任一關閉按鈕時
+    // 当用户点击任一关闭按钮时
     $(".close-guide").click(function() {
-      var guideNumber = $(this).data("guide"); // 獲取是哪一個指引的關閉按鈕
-      $("#guideModal" + guideNumber).hide(); // 隱藏當前指引
+        var guideNumber = $(this).data("guide"); // 获取是哪一个指引的关闭按钮
+        $("#guideModal" + guideNumber).hide(); // 隐藏当前指引
   
-      if (guideNumber == 1) {
-        // 如果是第一個指引被關閉，則顯示第二個指引
-        $("#guideModal2").show();
-      } else if (guideNumber == 2) {
-        // 如果是第二個指引被關閉，則顯示第三個指引
-        $("#guideModal3").show();
-      } else {
-        // 如果是第三個指引被關閉，則隱藏遮罩層
-        $(".modal-overlay").hide();
-      }
+        if (guideNumber == 1) {
+            // 如果是第一个指引被关闭，则显示第二个指引
+            $("#guideModal2").show();
+        } else if (guideNumber == 2) {
+            // 如果是第二个指引被关闭，则显示第三个指引
+            $("#guideModal3").show();
+        } else {
+            // 如果是第三个指引被关闭，则隐藏遮罩层
+            $(".modal-overlay").hide();
+            // 在这里开始计时
+            const duration = 300, // 这里设置倒数计时的总秒数，示例中设置为3分钟
+                display = document.querySelector('#timer');
+            startTimer(duration, display);
+        }
     });
-  });
+});
   
 function fallbackCopyTextToClipboard(text) {
     var textArea = document.createElement("textarea");
