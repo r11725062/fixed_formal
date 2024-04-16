@@ -142,7 +142,7 @@ function startTimer(duration, display) {
         if (--timer < 0) {
             clearInterval(interval);
             submitChatHistoryToGoogleForm()
-            window.location.href = 'https://tassel.syd1.qualtrics.com/jfe/form/SV_9ZwsyfyiF8tD1v8'; // 替換為實際的跳轉URL
+            window.location.href = 'https://tassel.syd1.qualtrics.com/jfe/form/SV_1zPNuBIHjr0YlFA'; // 替換為實際的跳轉URL
         }
     }, 1000);
 }
