@@ -192,7 +192,18 @@ $(document).ready(function() {
             startTimer(duration, display);
         }
     });
+
+    // 当用户点击右上角关闭图标时，关闭问题库视窗
+    $(".popup-close-icon").click(function() {
+        $(this).closest(".popup-box").hide();
+    });
+
+    // 关闭问题库
+    $('.close-popup').click(function() {
+        $(this).parent('.popup-box').hide();
+    });
 });
+
   
 function fallbackCopyTextToClipboard(text) {
     var textArea = document.createElement("textarea");
