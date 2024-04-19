@@ -77,12 +77,28 @@ chatInput.addEventListener("input", () => {
     chatInput.style.height = `${chatInput.scrollHeight}px`;
 });
 
-chatInput.addEventListener("keydown", (e) => {
-    // If Enter key is pressed without Shift key and the window 
-    // width is greater than 800px, handle the chat
-    if(e.key === "Enter" && !e.shiftKey && window.innerWidth > 800) {
-        e.preventDefault();
-        handleChat();
+let enterPressed = false; // 用于追踪用户是否按下了 Enter 键
+
+chatInput.addEventListener("keyup", (e) => {
+    if (e.key === "Enter" && !e.shiftKey && window.innerWidth > 800) {
+        // 检查输入框中是否有候选字面板打开
+        const isCandidatePanelOpen = document.querySelector(".CompositionArea-caretMenu") !== null;
+        if (!isCandidatePanelOpen) {
+            // 如果候选字面板未打开，则执行发送消息的操作
+            e.preventDefault(); // 阻止默认的 Enter 行为
+            if (!enterPressed) {
+                // 如果标志位为 false，则说明这是第一次按下 Enter 键
+                enterPressed = true; // 设置标志位为 true
+                // 在这里可以执行消除输入框底线的操作
+            } else {
+                // 如果标志位为 true，则说明这是第二次按下 Enter 键
+                handleChat(); // 发送消息
+                enterPressed = false; // 重置标志位为 false，以便下一次按键事件
+            }
+        }
+    } else {
+        // 如果用户按下的不是 Enter 键，则将标志位重置为 false
+        enterPressed = false;
     }
 });
 
